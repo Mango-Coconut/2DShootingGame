@@ -3,18 +3,30 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private int health = 10;
-    private IWeapon weapon;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float attackInterval = 0.2f;
+
+    private float attackTimer;
 
     public int Health => health;
 
-    public void Initialize(IWeapon initialWeapon)
+    private void Update()
     {
-        weapon = initialWeapon;
+        attackTimer += Time.deltaTime;
+        if (attackTimer >= attackInterval)
+        {
+            attackTimer = 0f;
+            Attack();
+        }
     }
 
-    public void Attack()
+    private void Attack()
     {
-        weapon?.Fire();
+        if (bulletPrefab == null || firePoint == null)
+            return;
+
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     public void Heal(int amount)

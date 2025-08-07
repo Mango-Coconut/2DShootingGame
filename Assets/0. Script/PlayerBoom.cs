@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBoom : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float radius = 3f;
+    [SerializeField] private int damage = 10;
+
+    public void Boom()
     {
-        
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius);
+        foreach (var hit in hits)
+        {
+            Enemy enemy = hit.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
     {
-        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
+#endif
 }
