@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Enemy[] enemies;
+    [SerializeField] private Transform[] spawnPoints;
 
-    // Update is called once per frame
-    void Update()
+    public void Spawn(int index)
     {
-        
+        if (enemies.Length == 0 || spawnPoints.Length == 0)
+            return;
+
+        int spawnIndex = Random.Range(0, spawnPoints.Length);
+        Instantiate(enemies[index], spawnPoints[spawnIndex].position, Quaternion.identity);
     }
 }

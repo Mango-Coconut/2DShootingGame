@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int score = 1;
 
-    // Update is called once per frame
-    void Update()
+    public override void Apply(Player player)
     {
-        
+        GameManager.Instance.AddScore(score);
     }
 }

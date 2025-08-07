@@ -1,18 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int health = 1;
+    public int Health => health;
+
+    private void Update()
     {
-        
+        Move();
+        Attack();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected abstract void Move();
+    protected abstract void Attack();
+
+    public virtual void TakeDamage(int amount)
     {
-        
+        health -= amount;
+        if (health <= 0)
+            Die();
+    }
+
+    protected virtual void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

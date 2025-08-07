@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackPortion : MonoBehaviour
+public class AttackPortion : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Apply(Player player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // TODO: Implement attack buff logic
     }
 }

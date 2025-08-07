@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBoss : MonoBehaviour
+public class EnemyBoss : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Move()
     {
-        
+        // TODO: Implement movement logic
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Attack()
     {
-        
+        // TODO: Implement attack logic
     }
 }
