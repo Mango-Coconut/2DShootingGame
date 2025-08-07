@@ -1,22 +1,25 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Player))]
+[RequireComponent(typeof(PlayerBoom))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     private Player player;
+    private PlayerBoom boom;
 
     private void Awake()
     {
         player = GetComponent<Player>();
+        boom = GetComponent<PlayerBoom>();
     }
 
     private void Update()
     {
         HandleMovement();
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            player.Attack();
+            boom?.Boom();
         }
     }
 
