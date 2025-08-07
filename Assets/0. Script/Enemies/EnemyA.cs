@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class EnemyA : Enemy
 {
-    [SerializeField] private float speed = 2f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireInterval = 1f;
 
     private float fireTimer;
 
-    protected override void Move()
+    private void Awake()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        speed = 2f;
     }
 
-    protected override void Attack()
+    public override void Attack()
     {
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireInterval)

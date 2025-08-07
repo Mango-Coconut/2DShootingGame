@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class EnemyC : Enemy
 {
-    [SerializeField] private float speed = 1.5f;
     [SerializeField] private float beamInterval = 2f;
     [SerializeField] private float beamRange = 10f;
     [SerializeField] private int beamDamage = 1;
 
     private float attackTimer;
 
-    protected override void Move()
+    private void Awake()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        speed = 1.5f;
     }
 
-    protected override void Attack()
+    public override void Attack()
     {
         attackTimer += Time.deltaTime;
         if (attackTimer >= beamInterval)

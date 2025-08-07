@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class EnemyB : Enemy
 {
-    [SerializeField] private float speed = 3f;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int bulletCount = 8;
 
-    protected override void Move()
+    private void Awake()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        speed = 3f;
     }
 
-    protected override void Attack()
+    public override void Attack()
     {
         // EnemyB attacks by colliding with the player.
     }

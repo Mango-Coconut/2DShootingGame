@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class EnemyBoss : Enemy
 {
-    protected override void Move()
+    public override void Move()
     {
         // TODO: Implement movement logic
     }
 
-    protected override void Attack()
+    public override void Attack()
     {
         // TODO: Implement attack logic
     }
