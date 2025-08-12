@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HealPortion : Item
+public class BoomItem : Item
 {
     [SerializeField] private int healAmount = 1;
 

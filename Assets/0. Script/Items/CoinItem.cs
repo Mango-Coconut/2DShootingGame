@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Coin : Item
+public class CoinItem : Item
 {
     [SerializeField] private int score = 1;
 

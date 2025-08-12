@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackPortion : Item
+public class PowerItem : Item
 {
     public override void Apply(Player player)
     {
