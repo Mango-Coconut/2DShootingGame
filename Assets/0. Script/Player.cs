@@ -3,7 +3,6 @@ using UnityEngine;
 public class Player : MonoBehaviour, IDamageable
 {
     [SerializeField] private int health = 10;
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float attackInterval = 0.2f;
 
@@ -23,10 +22,10 @@ public class Player : MonoBehaviour, IDamageable
 
     private void Attack()
     {
-        if (bulletPrefab == null || firePoint == null)
+        if (firePoint == null)
             return;
 
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        PoolManager.Instance.Get<PlayerBullet>(PlayerBullet.PoolKey, firePoint.position, firePoint.rotation);
     }
 
     public void Heal(int amount)

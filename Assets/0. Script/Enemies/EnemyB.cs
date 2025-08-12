@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyB : Enemy
 {
-    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int bulletCount = 8;
 
     private void Awake()
@@ -28,16 +27,14 @@ public class EnemyB : Enemy
 
     private void SprinkleBullets()
     {
-        if (bulletPrefab == null) return;
-
         for (int i = 0; i < bulletCount; i++)
         {
             float angle = (360f / bulletCount) * i;
             Vector2 dir = Quaternion.Euler(0f, 0f, angle) * Vector2.up;
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            EnemyBullet eb = bullet.GetComponent<EnemyBullet>();
-            if (eb != null)
-                eb.SetDirection(dir);
+            EnemyBullet bullet = PoolManager.Instance.Get<EnemyBullet>(
+                EnemyBullet.PoolKey, transform.position, Quaternion.identity);
+            if (bullet != null)
+                bullet.Fire(dir);
         }
     }
 }
