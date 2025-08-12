@@ -35,7 +35,7 @@ public class EnemyBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable target = collision.GetComponent<IDamageable>();
-        if (target != null)
+        if (target != null && collision.tag != "Enemy")
         {
             target.TakeDamage(damage);
             PoolManager.Instance.Return(PoolKey, this);

@@ -28,7 +28,7 @@ public class PlayerBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IDamageable target = collision.GetComponent<IDamageable>();
-        if (target != null)
+        if (target != null && collision.tag != "Player")
         {
             target.TakeDamage(damage);
             PoolManager.Instance.Return(PoolKey, this);
