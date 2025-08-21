@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class PlayerBoom : MonoBehaviour
 {
-    [SerializeField] private float radius = 3f;
-    [SerializeField] private int damage = 10;
     [SerializeField] private int boomCount = 0;
 
     public int BoomCount => boomCount;
@@ -20,22 +18,7 @@ public class PlayerBoom : MonoBehaviour
 
         boomCount--;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius);
-        foreach (var hit in hits)
-        {
-            Enemy enemy = hit.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(damage);
-            }
-        }
+        Vector3 spawnPos = new Vector3(transform.position.x, -10f, 0f);
+        PoolManager.Instance.Get<PlayerBoomProjectile>(PlayerBoomProjectile.PoolKey, spawnPos, Quaternion.identity);
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
-    }
-#endif
 }
