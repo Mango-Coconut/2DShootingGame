@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         HandleMovement();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             boom?.Boom();
         }
