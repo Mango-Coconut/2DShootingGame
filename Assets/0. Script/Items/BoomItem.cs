@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class BoomItem : Item
 {
-    [SerializeField] private int healAmount = 1;
+    [SerializeField] private int boomAmount = 1;
 
     public override void Apply(Player player)
     {
-        player.Heal(healAmount);
+        PlayerBoom boom = player.GetComponent<PlayerBoom>();
+        if (boom != null)
+        {
+            boom.AddBoom(boomAmount);
+        }
     }
 }
