@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     private int score;
 
+    public int Score => score;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -19,5 +21,18 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
+    }
+
+    public void RegisterScore()
+    {
+        LocalRanking.AddScore(score);
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            RegisterScore();
+        }
     }
 }
