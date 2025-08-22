@@ -1,0 +1,34 @@
+{
+  "stages": [
+    {
+      "enemies": [
+        { "type": "EnemyA", "count": 5 }
+      ]
+    },
+    {
+      "enemies": [
+        { "type": "EnemyA", "count": 4 },
+        { "type": "EnemyB", "count": 2 }
+      ]
+    },
+    {
+      "enemies": [
+        { "type": "EnemyA", "count": 3 },
+        { "type": "EnemyB", "count": 3 },
+        { "type": "EnemyC", "count": 2 }
+      ]
+    },
+    {
+      "enemies": [
+        { "type": "EnemyA", "count": 3 },
+        { "type": "EnemyB", "count": 3 },
+        { "type": "EnemyC", "count": 3 }
+      ]
+    },
+    {
+      "enemies": [
+        { "type": "EnemyBoss", "count": 1 }
+      ]
+    }
+  ]
+}

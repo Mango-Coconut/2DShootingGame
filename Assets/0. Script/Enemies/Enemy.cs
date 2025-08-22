@@ -30,5 +30,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttack, IMove
     protected virtual void Die()
     {
         gameObject.SetActive(false);
+        StageManager.Instance?.EnemyDefeated();
     }
 }
