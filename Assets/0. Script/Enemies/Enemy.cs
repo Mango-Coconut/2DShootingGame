@@ -2,9 +2,24 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable, IAttack, IMove
 {
-    [SerializeField] protected int health = 1;
-    [SerializeField] protected float speed = 1f;
+    [SerializeField] private EnemyStats stats;
+
+    protected int health;
+    protected float speed;
     public int Health => health;
+
+    protected virtual void Awake()
+    {
+        if (stats != null)
+            ApplyStats(stats);
+    }
+
+    public void ApplyStats(EnemyStats newStats)
+    {
+        stats = newStats;
+        health = stats.health;
+        speed = stats.speed;
+    }
 
     private void Update()
     {

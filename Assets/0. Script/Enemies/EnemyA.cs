@@ -8,11 +8,6 @@ public class EnemyA : Enemy
     private float fireTimer;
     private Transform player;
 
-    private void Awake()
-    {
-        speed = 2f;
-    }
-
     private void Start()
     {
         player = FindObjectOfType<Player>()?.transform;
