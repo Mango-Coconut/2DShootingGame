@@ -3,6 +3,35 @@ using UnityEngine;
 public class EnemyB : Enemy
 {
     [SerializeField] private int bulletCount = 8;
+    [SerializeField] private float acceleration = 1f;
+    [SerializeField] private float accelerationIncrease = 0.5f;
+
+    private float horizontalSpeed;
+    private float verticalSpeed;
+    private float currentAcceleration;
+    private Transform player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>()?.transform;
+
+        Vector2 dir = player != null
+            ? ((Vector2)(player.position - transform.position)).normalized
+            : Vector2.down;
+
+        horizontalSpeed = dir.x * speed;
+        verticalSpeed = Mathf.Abs(dir.y) * speed;
+        currentAcceleration = acceleration;
+    }
+
+    public override void Move()
+    {
+        verticalSpeed += currentAcceleration * Time.deltaTime;
+        currentAcceleration += accelerationIncrease * Time.deltaTime;
+
+        Vector2 move = new Vector2(horizontalSpeed, -verticalSpeed) * Time.deltaTime;
+        transform.Translate(move, Space.World);
+    }
 
     public override void Attack()
     {
