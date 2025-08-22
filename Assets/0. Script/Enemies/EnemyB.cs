@@ -4,11 +4,6 @@ public class EnemyB : Enemy
 {
     [SerializeField] private int bulletCount = 8;
 
-    private void Awake()
-    {
-        speed = 3f;
-    }
-
     public override void Attack()
     {
         // EnemyB attacks by colliding with the player.

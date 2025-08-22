@@ -10,11 +10,6 @@ public class EnemyC : Enemy
     private float attackTimer;
     private Transform player;
 
-    private void Awake()
-    {
-        speed = 1.5f;
-    }
-
     private void Start()
     {
         player = FindObjectOfType<Player>()?.transform;
