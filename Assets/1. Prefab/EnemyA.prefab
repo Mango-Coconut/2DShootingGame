@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74289df811bf67f439cb8a3588e4029e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  speed: 0.1
+  stats: {fileID: 11400000, guid: 949fbb20a4399c94db1dfd9125cc8a2c, type: 2}
   fireInterval: 2
   rotateSpeed: 180
 --- !u!50 &8305247117313866064

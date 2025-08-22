@@ -99,8 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287cc79f75af4d14fa54c28b785341ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  speed: 1
+  stats: {fileID: 11400000, guid: 39a87b6305899c64d88e0ef2581c6f25, type: 2}
   bulletCount: 8
 --- !u!50 &6941904609721499658
 Rigidbody2D:

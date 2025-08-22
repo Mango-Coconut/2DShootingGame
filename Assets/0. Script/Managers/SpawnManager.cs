@@ -27,10 +27,7 @@ public class SpawnManager : MonoBehaviour
             return;
 
         int spawnIndex = Random.Range(0, spawnPoints.Length);
-        Enemy instance = Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity);
-        EnemyStats stats = Resources.Load<EnemyStats>($"EnemyStats/{type}");
-        if (stats != null)
-            instance.ApplyStats(stats);
+        Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity);
     }
 
     public IEnumerator SpawnStage(StageInfo stage)
