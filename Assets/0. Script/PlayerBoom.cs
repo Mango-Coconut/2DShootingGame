@@ -18,7 +18,7 @@ public class PlayerBoom : MonoBehaviour
 
         boomCount--;
 
-        Vector3 spawnPos = new Vector3(transform.position.x, -10f, 0f);
+        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, 0f);
         PoolManager.Instance.Get<PlayerBoomProjectile>(PlayerBoomProjectile.PoolKey, spawnPos, Quaternion.identity);
     }
 }

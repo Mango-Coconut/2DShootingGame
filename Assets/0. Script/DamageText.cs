@@ -19,7 +19,7 @@ public class DamageText : MonoBehaviour
     private void Awake()
     {
         text = gameObject.AddComponent<TextMeshPro>();
-        text.fontSize = 36;
+        text.fontSize = 4;
         text.color = Color.white;
         text.alignment = TextAlignmentOptions.Center;
     }

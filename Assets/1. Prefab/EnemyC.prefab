@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  speed: 1
+  speed: 0.2
   beamInterval: 2
   beamRange: 10
   beamDamage: 1

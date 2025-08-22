@@ -67,7 +67,7 @@ public class Player : MonoBehaviour, IDamageable
         }
         else
         {
-            attackInterval = Mathf.Max(0.1f, attackInterval - 0.2f);
+            attackInterval = Mathf.Max(0.1f, attackInterval - 0.1f);
         }
     }
 }
