@@ -4,16 +4,17 @@ public class EnemyB : Enemy
 {
     [SerializeField] private int bulletCount = 8;
     [SerializeField] private float acceleration = 1f;
-    [SerializeField] private float accelerationIncrease = 0.5f;
+    [SerializeField] private float accelerationIncrease = 1f;
 
     private float horizontalSpeed;
     private float verticalSpeed;
     private float currentAcceleration;
-    private Transform player;
 
-    private void Start()
+    bool isSprinkled = false;
+    [SerializeField] private float rotateSpeed = 2f;
+    public override void Move()
     {
-        player = FindObjectOfType<Player>()?.transform;
+        
 
         Vector2 dir = player != null
             ? ((Vector2)(player.position - transform.position)).normalized
@@ -22,15 +23,20 @@ public class EnemyB : Enemy
         horizontalSpeed = dir.x * speed;
         verticalSpeed = Mathf.Abs(dir.y) * speed;
         currentAcceleration = acceleration;
-    }
 
-    public override void Move()
-    {
         verticalSpeed += currentAcceleration * Time.deltaTime;
         currentAcceleration += accelerationIncrease * Time.deltaTime;
 
+
         Vector2 move = new Vector2(horizontalSpeed, -verticalSpeed) * Time.deltaTime;
         transform.Translate(move, Space.World);
+
+        RotateTowardsPlayer();
+        if (!isSprinkled && transform.position.y > 1)
+        {
+            isSprinkled = true;
+            SprinkleBullets();
+        }
     }
 
     public override void Attack()
@@ -47,6 +53,17 @@ public class EnemyB : Enemy
             SprinkleBullets();
             Die();
         }
+    }
+
+    private void RotateTowardsPlayer()
+    {
+        if (player == null)
+            return;
+
+        Vector2 dir = player.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f;
+        Quaternion target = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, target, rotateSpeed * Time.deltaTime);
     }
 
     private void SprinkleBullets()

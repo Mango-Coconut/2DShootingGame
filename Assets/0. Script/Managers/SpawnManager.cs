@@ -7,6 +7,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private Enemy[] enemies;
     [SerializeField] private Transform[] spawnPoints;
 
+    [SerializeField] private Transform player;
+
     private Dictionary<string, Enemy> enemyDict;
 
     private void Awake()
@@ -27,7 +29,8 @@ public class SpawnManager : MonoBehaviour
             return;
 
         int spawnIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity);
+        Enemy e = Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity) as Enemy;
+        e.Initialize(player);
     }
 
     public IEnumerator SpawnStage(StageInfo stage)

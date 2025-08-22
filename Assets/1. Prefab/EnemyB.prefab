@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 39a87b6305899c64d88e0ef2581c6f25, type: 2}
   bulletCount: 8
+  acceleration: 1
+  accelerationIncrease: 1
+  rotateSpeed: 60
 --- !u!50 &6941904609721499658
 Rigidbody2D:
   serializedVersion: 4

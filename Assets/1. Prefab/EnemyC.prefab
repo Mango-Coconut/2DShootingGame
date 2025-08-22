@@ -99,11 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 848a878469b18ef429e08a85421ea3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  speed: 0.2
+  stats: {fileID: 11400000, guid: 123f33c5f47b29e49869c7b076ac24c7, type: 2}
   beamInterval: 2
   beamRange: 10
   beamDamage: 1
+  rotateSpeed: 180
 --- !u!50 &384519717100759834
 Rigidbody2D:
   serializedVersion: 4

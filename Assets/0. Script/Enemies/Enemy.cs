@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour, IDamageable, IAttack, IMove
 {
     [SerializeField] private EnemyStats stats;
-
+    protected Transform player;
     protected int health;
     protected float speed;
     public int Health => health;
@@ -42,6 +42,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttack, IMove
             Die();
     }
 
+    public void Initialize(Transform p)
+    {
+        player = p;
+    }
     protected virtual void Die()
     {
         gameObject.SetActive(false);

@@ -8,12 +8,7 @@ public class EnemyC : Enemy
     [SerializeField] private float rotateSpeed = 180f;
 
     private float attackTimer;
-    private Transform player;
 
-    private void Start()
-    {
-        player = FindObjectOfType<Player>()?.transform;
-    }
 
     public override void Move()
     {
