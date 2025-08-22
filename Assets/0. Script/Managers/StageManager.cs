@@ -47,6 +47,7 @@ public class StageManager : MonoBehaviour
         }
 
         StageInfo stage = stageData.stages[currentStage];
+        StageNoticeUI.Show(currentStage + 1);
         remainingEnemies = stage.enemies.Sum(e => e.count);
         StartCoroutine(spawnManager.SpawnStage(stage));
     }
