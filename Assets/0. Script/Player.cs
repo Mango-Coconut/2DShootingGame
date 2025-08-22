@@ -47,6 +47,7 @@ public class Player : MonoBehaviour, IDamageable
     public void TakeDamage(int amount)
     {
         health -= amount;
+        DamageText.Create(amount, transform.position);
         if (health <= 0)
             Die();
     }

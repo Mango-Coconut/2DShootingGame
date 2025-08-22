@@ -22,6 +22,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttack, IMove
     public virtual void TakeDamage(int amount)
     {
         health -= amount;
+        DamageText.Create(amount, transform.position);
         if (health <= 0)
             Die();
     }
