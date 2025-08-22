@@ -14,7 +14,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable, IAttack, IMove
 
     public virtual void Move()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        transform.Translate(Vector2.down * speed * Time.deltaTime, Space.World);
     }
 
     public abstract void Attack();

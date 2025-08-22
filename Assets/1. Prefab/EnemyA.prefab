@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  speed: 0.2
+  speed: 0.1
   fireInterval: 2
+  rotateSpeed: 180
 --- !u!50 &8305247117313866064
 Rigidbody2D:
   serializedVersion: 4

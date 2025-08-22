@@ -32,7 +32,7 @@ public class EnemyC : Enemy
             return;
 
         Vector2 dir = player.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 90f;
         Quaternion target = Quaternion.Euler(0f, 0f, angle);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, target, rotateSpeed * Time.deltaTime);
     }
